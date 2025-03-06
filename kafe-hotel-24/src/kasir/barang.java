@@ -19,6 +19,7 @@ public class barang extends javax.swing.JFrame {
         initComponents();
         showData();
         reset();
+        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 //        formatRupiah();
     }
 
@@ -81,6 +82,11 @@ public class barang extends javax.swing.JFrame {
         tbl_menu = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(99, 68, 18));
 
@@ -349,6 +355,12 @@ public class barang extends javax.swing.JFrame {
     private void txt_hargaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_hargaKeyReleased
         formatRupiah();
     }//GEN-LAST:event_txt_hargaKeyReleased
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        home.kitchen ktc = new home.kitchen();
+        ktc.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments
